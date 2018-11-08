@@ -8,18 +8,16 @@ class Toggle extends Component {
   }
   //method to updat visible on state
   // thihs is using the public class filed syntax to bind this
-  updateVisibility = () => {
-    this.setState({ visible: !this.state.visible })
+  handleUpdateToggle = () => {
+    this.setState((prevState) => ({ visible: !prevState.visible }))
   }
   render() {
-    return (
-      <div>
-        {/* boiler plate */}
-        <button onClick={this.updateVisibility}>Show/Hide</button>
-        {/* where the magic happens. checking to see if visible is true on state and then invoke our render function that is a prop */}
-        {this.state.visible && this.props.render()}
-      </div>
-    )
+    return <div>
+				{/* boiler plate */}
+				<button onClick={this.handleUpdateToggle}>Show/Hide</button>
+				{/* where the magic happens. checking to see if visible is true on state and then invoke our render function that is a prop */}
+				{this.state.visible && this.props.render()}
+			</div>
   }
 }
 
